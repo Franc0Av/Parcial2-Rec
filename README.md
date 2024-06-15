@@ -1,4 +1,4 @@
-# inventaio de libros
+# inventario de libros
 
 ## Project setup
 ```
