@@ -1,0 +1,23 @@
+.formContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1em;
+    width: 25%;
+    padding: 2em;
+    border: 6px solid rgb(13, 223, 170);
+    border-radius: 6px;
+  }
+  button{
+    width: 200px;
+    height: 50px;
+    border-radius: 6px;
+    background-color: rgb(13, 223, 170);
+    color: white;
+    font-weight: bolder
+  }
+  .btnContainer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
