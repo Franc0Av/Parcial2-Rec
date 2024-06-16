@@ -4,7 +4,7 @@
     justify-content: space-between;
     align-items: center;
   }
-  .inputBox {
+  /* .inputBox {
     display: flex;
     flex-direction: column;
     width: 350px;
@@ -22,10 +22,12 @@
     color: black;
     font-size: larger;
     font-weight: 100;
-  }
+  } */
   .error-message {
-  color: red;
+  color: white;
+  background-color: rgb(236, 48, 24);
   visibility: visible;
   position: absolute;
-  top: 120%;
+  left: 0%;
+  top: 80%;
  }

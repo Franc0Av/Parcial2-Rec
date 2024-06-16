@@ -5,8 +5,16 @@
     gap: 1em;
     width: 25%;
     padding: 2em;
-    border: 6px solid rgb(13, 223, 170);
-    border-radius: 6px;
+    border: 5px solid rgb(62, 63, 63);
+    border-radius: 16px;
+    background-image: url('../assets/books.svg');
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+  .sectionContainer{
+    display: flex;
+    justify-content: space-evenly;
   }
   button{
     width: 200px;
