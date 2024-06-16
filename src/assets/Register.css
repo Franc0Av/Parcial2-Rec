@@ -19,10 +19,7 @@
   button{
     width: 200px;
     height: 50px;
-    border-radius: 6px;
-    background-color: rgb(13, 223, 170);
-    color: white;
-    font-weight: bolder
+    background-color: #8ac46e !important;
   }
   .btnContainer{
     width: 100%;

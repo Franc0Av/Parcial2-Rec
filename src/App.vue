@@ -1,5 +1,5 @@
 <template>
-  <h1 style="margin-bottom: 5%;">Registro de inventarios de libros</h1>
+  <h1 class="fw-bolder" style="margin-bottom: 5%;">Registro de inventarios de libros</h1>
   <Register></Register>
 </template>
 

@@ -23,7 +23,7 @@
       <div>
       </div>
       <div class="btnContainer">
-        <button class="btn btn-success" type="submit">Registrar libro</button>
+        <button class="btn btn-success fw-bold" type="submit">Registrar libro</button>
       </div>
     </form>
     <BookList :libros="libros" :showList="showList" />

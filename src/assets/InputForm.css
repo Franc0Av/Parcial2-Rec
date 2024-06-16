@@ -4,28 +4,9 @@
     justify-content: space-between;
     align-items: center;
   }
-  /* .inputBox {
-    display: flex;
-    flex-direction: column;
-    width: 350px;
-    gap: 1em;
-    position: relative;
-    margin-bottom: 20px;
-  }
-  input{
-    height: 30px;
-  }
-  #labelBox{
-    height: 40px;
-    display: flex;
-    align-items: start;
-    color: black;
-    font-size: larger;
-    font-weight: 100;
-  } */
   .error-message {
   color: white;
-  background-color: rgb(236, 48, 24);
+  background-color: #ea6d67;
   visibility: visible;
   position: absolute;
   left: 0%;
