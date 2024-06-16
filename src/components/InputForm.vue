@@ -1,17 +1,17 @@
 <template>
     <div class="boxContainer">
-      <div id="labelBox">
-        <label :for="labelId">{{ label }}</label>
-      </div>
-      <div class="inputBox">
+      <div class="form-floating mb-3 w-100">
         <input
-          :id="labelId"
+          id="floatingInput"
+          :class="inputClass"
           :type="typeInput"
           :required="required"
           v-model="inputValue"
           @input="sendValue"
+          placeholder="name"
         />
-        <small v-if="errorMessage" class="error-message">{{ errorMessage }}</small>
+        <label for="floatingInput">{{label}}</label>
+        <p v-if="errorMessage" class="error-message">{{ errorMessage }}</p>
       </div>
     </div>
   </template>
@@ -44,8 +44,13 @@
         type: Boolean,
         default: false
       }
-    },
-    methods: {
+  },
+  computed: {
+    inputClass() {
+      return this.errorMessage ? "form-control is-invalid w-100 shadow mb-5 bg-body-tertiary rounded" : "form-control w-100 shadow mb-5 bg-body-tertiary rounded";
+    }
+  },
+  methods: {
         sendValue(){
             this.$emit('input-value', this.inputValue)
         }

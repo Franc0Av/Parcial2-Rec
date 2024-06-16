@@ -1,59 +1,61 @@
 <template>
-    <form class="formContainer" @submit.prevent="handleSubmit">
+    <section class="sectionContainer">
+      <form class="formContainer" @submit.prevent="handleSubmit">
       <InputForm
-      label="Nombre:"
+      label="Nombre"
       labelId="nombre"
       @input-value="handleData('nombre', $event)"
       :errorMessage="errors.nombre ? 'El nombre del libro es obligatorio.' : ''"
-      required
       />
       <InputForm
-      label="Autor:"
+      label="Autor"
       labelId="autor"
       @input-value="handleData('autor', $event)"
       :errorMessage="errors.autor ? 'El nombre de autor es obligatorio.' : ''"
-      required
       />
       <InputForm
-      label="Año de publicación:"
+      label="Año de publicación"
       labelId="año"
       typeInput="number"
       @input-value="handleData('año', $event)"
       :errorMessage="errors.año ? 'El año ingresado es nulo o mayor a 2024.' : ''"
-      required
       />
       <div>
       </div>
       <div class="btnContainer">
-        <button @click="handleSubmit" type="submit">Registrar libro</button>
+        <button class="btn btn-success" type="submit">Registrar libro</button>
       </div>
     </form>
-
-    <div>
-      <h2>{{ nombre }}</h2>
-      <h2>{{ autor }}</h2>
-      <h2>{{ año }}</h2>
-    </div>
+    <BookList :libros="libros" :showList="showList" />
+    </section>
+    <Toast ref="successToast" />
   </template>
   
   <script>
   import InputForm from './InputForm.vue';
+  import BookList from './BookList.vue';
+  import Toast from './Toast.vue';
+
   import { validateNombre, validateAnio, validateAutor } from '../utils/utils';
   
   export default {
     components: {
-      InputForm
-  },
+      InputForm,
+      BookList,
+      Toast
+    },
     name: 'RegisterForm',
     data() {
       return {
         nombre: '',
         autor: '',
         año: null,
+        showList: false,
+        libros: [],
         errors: {
           nombre: false,
           autor: false,
-          año: false
+          año: false,
         }
       };
     },
@@ -65,13 +67,30 @@
         this.errors.nombre = !validateNombre(this.nombre);
         this.errors.autor = !validateAutor(this.autor);
         this.errors.año = !validateAnio(this.año);
+        return !this.errors.nombre && !this.errors.autor && !this.errors.año;
+      },
+      resetForm() {
+        this.nombre = '';
+        this.autor = '';
+        this.año = null;
+        this.errors = {
+          nombre: false,
+          autor: false,
+          año: false
+        }
       },
       handleSubmit() {
-        this.validateForm();
-        console.log(this.nombre, this.autor, this.año)
-        if (!this.errors.nombre && !this.errors.autor && !this.errors.año) {
-          alert('Formulario enviado correctamente');
-        } else {
+        if (this.validateForm()) {
+          const libro = {
+            nombre: this.nombre,
+            autor: this.autor,
+            año: this.año
+          };
+          this.libros.push(libro);
+          this.showList = true;
+          this.resetForm();
+          this.$refs.successToast.showToast();
+        }else {
             setTimeout(() => {
                 this.errors = {
                     nombre: false,
@@ -82,7 +101,7 @@
         }
       }
     }
-  };
+  }
   </script>
   
   <style scoped>

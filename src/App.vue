@@ -1,5 +1,5 @@
 <template>
-  <h1>Registro de inventarios de libros</h1>
+  <h1 style="margin-bottom: 5%;">Registro de inventarios de libros</h1>
   <Register></Register>
 </template>
 
@@ -22,5 +22,6 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  margin-left: 30px
 }
 </style>
